@@ -1,0 +1,44 @@
+
+
+OpenMessage
+04 ea60 00037f0000011802060104000100010202800002020200020641040000ea60
+
+
+
+                        "04" +  //version
+                        "ea60" +  // My Autonomous System
+                        "0003" + // Hold time
+                        "7f000001" + //BGP Identifier 127.0.0.1
+                        "18" +  // Optional Parameters Length:
+
+                        "02" + "06" + "01" + "04" + "00010001" + // multiprotocol extention
+                        "02" + "02" + "80" + 00" +
+                        "02" + "02" + "02" + 00" +
+                        "02" + "06" + "41" + "04" + "0000ea60"
+
+
+=== bgpd/bgp_open.h
+
+
+/* Capability Code */
+#define CAPABILITY_CODE_MP              1 /* Multiprotocol Extensions */
+#define CAPABILITY_CODE_REFRESH         2 /* Route Refresh Capability */
+#define CAPABILITY_CODE_ORF             3 /* Cooperative Route Filtering Capability */
+#define CAPABILITY_CODE_RESTART        64 /* Graceful Restart Capability */
+#define CAPABILITY_CODE_AS4            65 /* 4-octet AS number Capability */
+#define CAPABILITY_CODE_DYNAMIC        66 /* Dynamic Capability */
+#define CAPABILITY_CODE_REFRESH_OLD   128 /* Route Refresh Capability(cisco) */
+#define CAPABILITY_CODE_ORF_OLD       130 /* Cooperative Route Filtering Capability(cisco) */
+
+/* Capability Length */
+#define CAPABILITY_CODE_MP_LEN          4
+#define CAPABILITY_CODE_REFRESH_LEN     0
+#define CAPABILITY_CODE_DYNAMIC_LEN     0
+#define CAPABILITY_CODE_RESTART_LEN     2 /* Receiving only case */
+#define CAPABILITY_CODE_AS4_LEN         4
+
+
+
+
+
+
